@@ -204,6 +204,12 @@
         </div>
        </aside>
        <div class="gallery-backdrop" id="galleryBackdrop"></div>
+       <div class="gallery-lightbox" id="galleryLightbox">
+        <button class="gallery-lightbox-close" id="galleryLightboxClose" type="button" aria-label="Закрыть">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+        <img class="gallery-lightbox-img" id="galleryLightboxImg" src="" alt="">
+       </div>
       </article>
 
       <section class="faq section">
@@ -324,8 +330,24 @@
       expandBtn.addEventListener('click', () => setExpanded(!galleryCard.classList.contains('is-expanded')));
       mobileBar.addEventListener('click', () => setExpanded(true));
       backdrop.addEventListener('click', () => setExpanded(false));
+
+      const lightbox = document.getElementById('galleryLightbox');
+      const lightboxImg = document.getElementById('galleryLightboxImg');
+      const lightboxClose = document.getElementById('galleryLightboxClose');
+      function openLightbox() {
+        lightboxImg.src = slideImg.src;
+        lightboxImg.alt = slideImg.alt;
+        lightbox.classList.add('is-visible');
+      }
+      function closeLightbox() {
+        lightbox.classList.remove('is-visible');
+      }
+      slideImg.addEventListener('click', openLightbox);
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', event => { if (event.target === lightbox) closeLightbox(); });
+
       document.addEventListener('keydown', event => {
-        if (event.key === 'Escape') setExpanded(false);
+        if (event.key === 'Escape') { closeLightbox(); setExpanded(false); }
       });
     </script>
   </body>

@@ -35,7 +35,8 @@
       .audio-card { min-height:125px; padding:22px 36px; border-radius:46px; }
       .audio-play { width:72px; height:72px; font-size:24px; }
       .audio-status { gap:19px; font-size:21px; }
-      .audio-status i { height:5px; }
+      .audio-progress { height:5px; }
+      .audio-progress-fill:after { width:11px; height:11px; }
       .audio-volume { font-size:25px; margin-left:12px; }
       .audio-menu { font-size:30px; margin-left:4px; }
       .audio-guide { bottom:-9px; padding:8px 22px; border-radius:19px; font-size:14px; }
@@ -61,7 +62,7 @@
         <div class="hero-copy"><h1>Как эффективно<br>участвовать в выставке:<br>5 шагов к новым контрактам</h1></div>
         <div class="audio-card">
           <button class="audio-play" type="button" aria-label="Воспроизвести аудиоверсию"><span class="play-icon" aria-hidden="true"></span></button>
-          <div class="audio-status"><span>0:00 / 1:52</span><i></i></div>
+          <div class="audio-status"><span>0:00 / 1:52</span><div class="audio-progress" id="audioProgress"><div class="audio-progress-fill" id="audioProgressFill"></div></div></div>
           <button class="audio-volume" type="button" aria-label="Выключить звук">
             <svg class="icon-unmuted" viewBox="0 0 24 24" aria-hidden="true"><path class="spk-body" d="M4 9v6h4l5 5V4L8 9H4z"/><path class="spk-wave" d="M16.3 8.5a5 5 0 0 1 0 7"/><path class="spk-wave" d="M19.3 5.5a9.2 9.2 0 0 1 0 13"/></svg>
             <svg class="icon-muted" viewBox="0 0 24 24" aria-hidden="true"><path class="spk-body" d="M4 9v6h4l5 5V4L8 9H4z"/><path class="spk-wave" d="M16 9l6 6M22 9l-6 6"/></svg>
@@ -254,7 +255,18 @@
       });
       audio.addEventListener('play', () => play.classList.add('is-playing'));
       audio.addEventListener('pause', () => play.classList.remove('is-playing'));
-      audio.addEventListener('timeupdate', () => status.textContent = `${format(audio.currentTime)} / ${format(audio.duration || 112)}`);
+      const progress = document.getElementById('audioProgress');
+      const progressFill = document.getElementById('audioProgressFill');
+      audio.addEventListener('timeupdate', () => {
+        status.textContent = `${format(audio.currentTime)} / ${format(audio.duration || 112)}`;
+        const pct = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+        progressFill.style.width = `${pct}%`;
+      });
+      progress.addEventListener('click', event => {
+        const rect = progress.getBoundingClientRect();
+        const ratio = Math.min(1, Math.max(0, (event.clientX - rect.left) / rect.width));
+        if (audio.duration) audio.currentTime = ratio * audio.duration;
+      });
     </script>
     <script>
       const totalSlides = 19;

@@ -71,7 +71,7 @@
         <div class="hero-copy"><h1>Как эффективно<br>участвовать в выставке:<br>5 шагов к новым контрактам</h1></div>
         <div class="audio-card">
           <button class="audio-play" type="button" aria-label="Воспроизвести аудиоверсию"><span class="play-icon" aria-hidden="true"></span></button>
-          <div class="audio-status"><span>0:00 / 1:52</span><div class="audio-progress" id="audioProgress"><div class="audio-progress-fill" id="audioProgressFill"></div></div></div>
+          <div class="audio-status"><span class="audio-time">0:00 / 1:52</span><div class="audio-progress" id="audioProgress"><div class="audio-progress-fill" id="audioProgressFill"></div></div></div>
           <button class="audio-volume" type="button" aria-label="Выключить звук">
             <svg class="icon-unmuted" viewBox="0 0 24 24" aria-hidden="true"><path class="spk-body" d="M4 9v6h4l5 5V4L8 9H4z"/><path class="spk-wave" d="M16.3 8.5a5 5 0 0 1 0 7"/><path class="spk-wave" d="M19.3 5.5a9.2 9.2 0 0 1 0 13"/></svg>
             <svg class="icon-muted" viewBox="0 0 24 24" aria-hidden="true"><path class="spk-body" d="M4 9v6h4l5 5V4L8 9H4z"/><path class="spk-wave" d="M16 9l6 6M22 9l-6 6"/></svg>
@@ -251,6 +251,11 @@
       </section>
     </main>
     <footer><a href="https://peterfood.ru/" target="_blank" rel="noopener">ПЕТЕРФУД 2026</a><span>Материал подготовлен командой «Петерфуда» на основе выступления и практического опыта Дарьи Вансович, Specialty.ru.</span></footer>
+    <button class="gallery-mobilebar" id="galleryMobileBar" type="button" aria-label="Открыть презентацию">
+      <img id="galleryMobileThumb" src="assets/slides/slide-01.png" alt="">
+      <span>Презентация к гайду</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5"/></svg>
+    </button>
     <script>
       const audio = document.querySelector('audio');
       const play = document.querySelector('.audio-play');
@@ -284,7 +289,10 @@
       const dotsWrap = document.getElementById('galleryDots');
       const expandBtn = document.getElementById('galleryExpand');
       const galleryCard = document.getElementById('galleryCard');
+      const galleryAside = document.querySelector('.guide-gallery');
       const backdrop = document.getElementById('galleryBackdrop');
+      const mobileBar = document.getElementById('galleryMobileBar');
+      const mobileThumb = document.getElementById('galleryMobileThumb');
       const slideSrc = i => `assets/slides/slide-${String(i + 1).padStart(2, '0')}.png`;
 
       for (let i = 0; i < totalSlides; i++) {
@@ -300,18 +308,21 @@
         currentSlide = (i + totalSlides) % totalSlides;
         slideImg.src = slideSrc(currentSlide);
         slideImg.alt = `Слайд ${currentSlide + 1} из ${totalSlides} презентации гайда`;
+        mobileThumb.src = slideSrc(currentSlide);
         [...dotsWrap.children].forEach((dot, idx) => dot.classList.toggle('is-active', idx === currentSlide));
       }
 
       document.getElementById('galleryPrev').addEventListener('click', () => goToSlide(currentSlide - 1));
       document.getElementById('galleryNext').addEventListener('click', () => goToSlide(currentSlide + 1));
       function setExpanded(expanded) {
+        galleryAside.classList.toggle('is-open', expanded);
         galleryCard.classList.toggle('is-expanded', expanded);
         backdrop.classList.toggle('is-visible', expanded);
         expandBtn.classList.toggle('is-expanded', expanded);
         expandBtn.setAttribute('aria-label', expanded ? 'Свернуть галерею' : 'Развернуть галерею');
       }
       expandBtn.addEventListener('click', () => setExpanded(!galleryCard.classList.contains('is-expanded')));
+      mobileBar.addEventListener('click', () => setExpanded(true));
       backdrop.addEventListener('click', () => setExpanded(false));
       document.addEventListener('keydown', event => {
         if (event.key === 'Escape') setExpanded(false);

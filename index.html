@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Практический гайд Петерфуда: как эффективно участвовать в выставке и получать новые контракты.">
+    <title>Как эффективно участвовать в выставке — Петерфуд</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .event-icon { width:19px; height:19px; margin:0 7px -5px 0; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+      .audio-play { padding:0; display:grid; place-items:center; }
+      .play-icon { width:0; height:0; margin-left:4px; border-top:11px solid transparent; border-bottom:11px solid transparent; border-left:17px solid #111; }
+      .audio-play.is-playing .play-icon { width:16px; height:22px; margin:0; border:0; background:linear-gradient(90deg,#111 0 5px,transparent 5px 11px,#111 11px); }
+      .audio-volume,.audio-menu { border:0; background:transparent; color:#303235; cursor:pointer; font-size:18px; line-height:1; padding:8px 3px; display:grid; place-items:center; }
+      .audio-volume svg { width:23px; height:23px; }
+      .audio-volume .spk-body { fill:currentColor; }
+      .audio-volume .spk-wave { fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; }
+      .audio-volume .icon-muted { display:none; }
+      .audio-volume.is-muted .icon-unmuted { display:none; }
+      .audio-volume.is-muted .icon-muted { display:block; }
+      .audio-menu { font-size:25px; padding-left:5px; }
+      .audio-guide { position:absolute; bottom:-13px; left:50%; transform:translateX(-50%) rotate(-1deg); white-space:nowrap; padding:6px 20px; border-radius:16px; background:#ffcf4d; color:#69591c; font-size:12px; font-weight:600; }
+      .audio-card { position:relative; }
+      /* Верхний блок повторяет пропорции утверждённого макета. */
+      .hero { width:min(1240px, calc(100% - 64px)); margin-top:51px; }
+      .event-bar { min-height:125px; display:grid; grid-template-columns:1fr auto; grid-template-rows:auto auto; gap:9px 30px; padding:25px 48px 21px; border-radius:49px; }
+      .brand { align-self:end; font-size:47px; line-height:1; }
+      .event-details { grid-row:2; margin:0; gap:31px; font-size:16px; }
+      .site-link { grid-column:2; grid-row:1 / span 2; align-self:center; margin:0; padding:27px 33px; border-radius:39px; font-size:16px; }
+      .hero-lead { grid-template-columns:1fr 605px; gap:50px; margin-top:29px; }
+      .hero-copy h1 { font-size:27px; line-height:1.14; }
+      .audio-card { min-height:125px; padding:22px 36px; border-radius:46px; }
+      .audio-play { width:72px; height:72px; font-size:24px; }
+      .audio-status { gap:19px; font-size:21px; }
+      .audio-status i { height:5px; }
+      .audio-volume { font-size:25px; margin-left:12px; }
+      .audio-menu { font-size:30px; margin-left:4px; }
+      .audio-guide { bottom:-9px; padding:8px 22px; border-radius:19px; font-size:14px; }
+      .section { width:min(1240px, calc(100% - 64px)); }
+      .intro h2, .summary h2, .chapter h2, .faq h2, .chapter h3, .formats h3, .more-grid strong { font-family:Unbounded,sans-serif; font-size:27px; font-weight:600; line-height:1.14; letter-spacing:-.06em; }
+      /* Весь текст лонгрида выровнен по левому краю; номер шага — декоративный элемент над заголовком. */
+      .lead { margin:0 0 70px; }
+      .chapter { grid-template-columns:1fr; gap:14px; }
+      @media (max-width:680px) { .audio-volume,.audio-menu { display:none; } .audio-guide { font-size:11px; } }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="event-bar">
+        <a class="brand" href="https://peterfood.ru/" target="_blank" rel="noopener">ПЕТЕРФУД <span>2026</span></a>
+        <div class="event-details">
+          <p><svg class="event-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v15H5zM8 2v4m8-4v4M5 9h14"/></svg>24–26 ноября 2026</p>
+          <p><svg class="event-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.1 7-12A7 7 0 1 0 5 9c0 5.9 7 12 7 12Zm0-9a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg>Санкт-Петербург. Экспофорум</p>
+        </div>
+        <a class="site-link" href="https://peterfood.ru/" target="_blank" rel="noopener">Перейти на сайт выставки</a>
+      </div>
+      <div class="hero-lead">
+        <div class="hero-copy"><h1>Как эффективно<br>участвовать в выставке:<br>5 шагов к новым контрактам</h1></div>
+        <div class="audio-card">
+          <button class="audio-play" type="button" aria-label="Воспроизвести аудиоверсию"><span class="play-icon" aria-hidden="true"></span></button>
+          <div class="audio-status"><span>0:00 / 1:52</span><i></i></div>
+          <button class="audio-volume" type="button" aria-label="Выключить звук">
+            <svg class="icon-unmuted" viewBox="0 0 24 24" aria-hidden="true"><path class="spk-body" d="M4 9v6h4l5 5V4L8 9H4z"/><path class="spk-wave" d="M16.3 8.5a5 5 0 0 1 0 7"/><path class="spk-wave" d="M19.3 5.5a9.2 9.2 0 0 1 0 13"/></svg>
+            <svg class="icon-muted" viewBox="0 0 24 24" aria-hidden="true"><path class="spk-body" d="M4 9v6h4l5 5V4L8 9H4z"/><path class="spk-wave" d="M16 9l6 6M22 9l-6 6"/></svg>
+          </button>
+          <a class="audio-guide" href="#guide">Что в материале?</a>
+          <audio preload="none" aria-label="Аудиоверсия гайда" src="https://www.dropbox.com/scl/fi/tvy2f2qktf7nrv2k8drj1/1.mp3?rlkey=so1g3ghrfqk1ubjza9jgmgx5g&amp;st=g1f6w8bn&amp;raw=1"></audio>
+        </div>
+      </div>
+    </header>
+
+    <main id="guide">
+      <section class="intro section">
+        <p class="section-label">Гайд Петерфуда</p>
+          <h2>Участие в выставке — это не просто стенд.<br>Это система, которая приводит к контрактам.</h2>
+        <div class="intro-grid">
+          <p>Вывод нового продукта или бренда на рынок всегда связан с рисками и ресурсными затратами. Самый быстрый способ показать преимущества продукта и компании — прямое взаимодействие с клиентом. Участие в профильной выставке даёт возможность сделать это и в своей товарной нише, и за её пределами.</p>
+          <p>Гайд основан на опыте Дарьи Вансович, коммерческого директора Specialty.ru. Компания прошла путь от нишевого онлайн-проекта до собственного бренда Rise и федерального ритейла. Мы адаптировали этот опыт в пошаговую систему для будущих и нынешних экспонентов «Петерфуда».</p>
+        </div>
+      </section>
+
+      <nav class="steps-nav" aria-label="Содержание гайда">
+        <div class="section steps-nav__inner">
+          <p>Что в материале?</p>
+          <ol>
+            <li><a href="#step-1">Выбираем выставку</a></li>
+            <li><a href="#step-2">Определяем формат</a></li>
+            <li><a href="#step-3">Готовим команду</a></li>
+            <li><a href="#step-4">Отрабатываем контакты</a></li>
+            <li><a href="#step-5">Оцениваем результат</a></li>
+          </ol>
+        </div>
+      </nav>
+
+      <article class="guide section">
+       <div class="guide-main">
+        <p class="lead">Пять шагов, которые определяют, окупится ли участие в выставке: выбор самой выставки, формат участия, подготовка материалов и персонала, отработка полученных контактов и оценка результата.</p>
+
+        <section class="chapter" id="step-1">
+          <div class="chapter-number">01</div>
+          <div class="chapter-content">
+            <h2>Выбираем выставку под потребности компании</h2>
+            <p>Первая и самая частая ошибка — идти на выставку с продуктом, а не с торговым предложением. Прежде чем бронировать стенд, стоит пройти четыре подшага.</p>
+            <h3>Определить коммерческую цель и регион</h3>
+            <p>Чётко сформулируйте, что компания хочет получить: презентацию бренда, конкретного продукта, расширение торговой матрицы или выход к новым партнёрам. От цели зависит и география: можно двигаться от своего региона к более дальним — с учётом производственных и логистических возможностей — или выбрать более амбициозный маршрут.</p>
+            <h3>Сформулировать торговое предложение</h3>
+            <p>Один и тот же продукт — это разные предложения для разных каналов. Например, кофе для HoReCa поставляется большими объёмами, а для полки супермаркета нужна витринная фасовка. До выставки полезно объехать целевые магазины, увидеть полку, конкурентов и ценовую категорию. Тогда закупщик сразу видит, что вы понимаете его канал сбыта, а не просто продаёте продукт «вообще».</p>
+            <h3>Определить целевые сети и магазины</h3>
+            <p>По ценовой группе и производственным возможностям определите не абстрактную аудиторию, а конкретные сети и объём торговых точек, с которыми хотите работать. Заранее разберитесь, как у них устроен процесс закупки, и будьте готовы доказать свою пригодность как поставщика ещё на стенде.</p>
+            <h3>Поставить цель по количеству контактов</h3>
+            <p>Ориентир «чем больше лидов, тем лучше» не работает. Цель нужна, чтобы затем честно оценить эффективность вложенных денег и времени.</p>
+            <ul class="metrics">
+              <li><strong>200+</strong><span>лидов — крупная федеральная отраслевая выставка</span></li>
+              <li><strong>100+</strong><span>лидов — федеральная специализированная выставка</span></li>
+              <li><strong>30+</strong><span>лидов — региональная специализированная выставка</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="chapter" id="step-2">
+          <div class="chapter-number">02</div>
+          <div class="chapter-content">
+            <h2>Определяемся с форматом участия</h2>
+            <p>Чётко разграничьте первоочередные и второстепенные цели — от этого зависит, какой формат подойдёт именно сейчас.</p>
+            <div class="formats">
+              <section><h3>Просто посетитель</h3><p>Подходит, если вы ищете партнёров, которые помогут сформировать торговое предложение, а не продвигаете собственный продукт. Подготовьте простой, но запоминающийся материал о себе: обычная визитка легко теряется.</p></section>
+              <section><h3>Небольшой стенд в формате ярмарки</h3><p>Хороший вариант для небольших компаний и нишевых предложений. Нужны детали, которые цепляют внимание: продуманная дегустация, вода между образцами, небольшие подарочные наборы, чтобы продукт можно было попробовать ещё раз и показать коллеге.</p></section>
+              <section><h3>Полноценный стенд</h3><p>Формат для быстрого роста и работы с крупными партнёрами. Зоны переговоров должны быть комфортными и независимыми, а мастер-классы и демонстрация продукта в деле помогают удержать посетителя у стенда.</p></section>
+              <section><h3>Спонсорский пакет</h3><p>Эффективный, но рискованный инструмент, построенный на эмоции. Связка качественного подарочного набора и информации о продукте для лидеров мнений может привести к партнёрству даже без отдельного стенда.</p></section>
+            </div>
+          </div>
+        </section>
+
+        <section class="chapter" id="step-3">
+          <div class="chapter-number">03</div>
+          <div class="chapter-content">
+            <h2>Готовим материалы и персонал</h2>
+            <p>Не менее 50% успеха участия зависит от качества и настроя персонала на стенде. Можно вложиться в самое стильное оформление, но без вовлечённой команды конверсия останется слабой.</p>
+            <h3>Что сделать заранее</h3>
+            <ul>
+              <li>Провести обучение и дать сотрудникам лично попробовать продукт. Искреннему личному впечатлению доверяют больше, чем заученному тексту.</li>
+              <li>Отправить на стенд открытых людей, которым нравится общаться, и не создавать «пугающих» установок перед выставкой.</li>
+              <li>Обеспечить бытовой комфорт: удобную одежду и обувь, короткие перерывы, взаимозаменяемость и еду. Довольный персонал принесёт больше пользы, чем самый дорогой экран.</li>
+              <li>Подготовить небольшой качественный мерч с контактами. Его задача — остаться под рукой, когда у клиента возникнет вопрос о продукте.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="chapter" id="step-4">
+          <div class="chapter-number">04</div>
+          <div class="chapter-content">
+            <h2>Отрабатываем полученные контакты</h2>
+            <p>Более 60% контактов, полученных на выставке, теряются уже после её окончания. Первые два-три рабочих дня команда заряжена, но именно в этот момент легко не довести практически готовые договорённости до результата.</p>
+            <h3>Как не потерять конверсию</h3>
+            <ol class="checklist">
+              <li>До выставки подготовьте простую форму сбора контактов и назначьте ответственного за неё.</li>
+              <li>Фиксируйте все договорённости прямо во время встречи — тезисно или развёрнуто.</li>
+              <li>В первые три рабочих дня соберите контакты в единую базу и проранжируйте по приоритету.</li>
+              <li>На первой рабочей неделе отправьте письмо с благодарностью и обозначьте срок следующего контакта менеджера.</li>
+            </ol>
+            <aside class="note"><span>Важно</span><p>Если менеджеры в течение двух недель связываются с каждым контактом минимум дважды — например, звонком и письмом, — конверсия потенциальных клиентов может достигать 60–70%.</p></aside>
+          </div>
+        </section>
+
+        <section class="chapter" id="step-5">
+          <div class="chapter-number">05</div>
+          <div class="chapter-content">
+            <h2>Оцениваем эффективность участия</h2>
+            <p>Сверяйте результат именно с целью по количеству лидов, которую заложили изначально, а не с ощущением «было многолюдно». Количество выставок само по себе не гарантирует качество результата: одну выставку можно отработать эффективно, если правильно выбрана аудитория и понятно торговое предложение.</p>
+            <p>Продукт остаётся ядром компании. Слабый продукт не спасёт никакое оформление, но и сильный продукт может не дойти до клиента из-за слабой подачи. Задача стенда — за несколько секунд дать проходящему мимо человеку понятный сигнал: что перед ним и почему стоит подойти.</p>
+          </div>
+        </section>
+       </div>
+
+       <aside class="guide-gallery">
+        <div class="gallery-card" id="galleryCard">
+          <div class="gallery-frame">
+            <img class="gallery-slide" id="gallerySlide" src="assets/slides/slide-01.png" alt="Слайд 1 из 19 презентации гайда">
+          </div>
+          <div class="gallery-dots" id="galleryDots"></div>
+          <div class="gallery-nav">
+            <button class="gallery-expand" id="galleryExpand" type="button" aria-label="Развернуть галерею">
+              <svg class="icon-expand" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5"/></svg>
+              <svg class="icon-collapse" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+            </button>
+            <div class="gallery-arrows">
+              <button class="gallery-arrow" id="galleryPrev" type="button" aria-label="Предыдущий слайд"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+              <button class="gallery-arrow" id="galleryNext" type="button" aria-label="Следующий слайд"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+       </aside>
+       <div class="gallery-backdrop" id="galleryBackdrop"></div>
+      </article>
+
+      <section class="faq section">
+        <p class="section-label">Отвечает эксперт</p>
+        <h2>Частые вопросы участников выставок</h2>
+        <details><summary>Нужно ли сразу прикладывать прайс к раздаточным материалам?</summary><p>Как правило, нет. У федеральных, региональных и локальных сетей разные условия. Лучше показать порядок цен и ценовую категорию, а само обсуждение оставить для вторичных переговоров.</p></details>
+        <details><summary>Какой бюджет закладывать на активности на стенде?</summary><p>Универсального ориентира нет: всё зависит от цели и сформулированного торгового предложения. Планирование стоит начинать именно с него, а не с продукта или идеи активности.</p></details>
+        <details><summary>Сколько сотрудников держать на стенде?</summary><p>Минимум трое: координатор демонстрации и дегустации и два менеджера для параллельных переговоров. Для сложного стенда полезен технический специалист.</p></details>
+        <details><summary>Какие KPI ставить сотрудникам?</summary><p>Эффективнее мотивировать команду результатом — например, бонусом с будущих продаж по клиентам, которых сотрудник привёл с выставки, — а не количеством собранных контактов.</p></details>
+        <details><summary>Сколько времени нужно на подготовку?</summary><p>Ориентир на старте — около полутора месяцев. Плотная подготовка обычно начинается за две недели до мероприятия.</p></details>
+      </section>
+
+      <section class="summary">
+        <div class="section">
+          <p class="section-label">Коротко</p>
+          <h2>Эффективное участие начинается задолго до открытия дверей — и заканчивается системной работой с контактами.</h2>
+          <p>Чёткая коммерческая цель, торговое предложение под конкретный канал, продуманный формат, подготовленная команда и последовательный follow-up усиливают друг друга. Слабое звено на любом этапе снижает отдачу от всех остальных.</p>
+        </div>
+      </section>
+
+      <section class="more section">
+        <p class="section-label">Также на «Петерфуде»</p>
+        <div class="more-list">
+          <a class="more-item" href="https://peterfood.ru/uchastie-so-stendom-retail-fmcg-horeca" target="_blank" rel="noopener">
+            <img src="assets/more/stend.png" alt="" style="object-position:50% 10%">
+            <div class="more-item-body"><strong>Участие со стендом</strong><em>Презентуйте новинки профессионалам индустрии</em></div>
+            <span class="more-btn">Подробнее</span>
+          </a>
+          <a class="more-item" href="https://peterfood.ru/centr-zakupok-setey-na-vystavke-peterfood" target="_blank" rel="noopener">
+            <img src="assets/more/czs.png" alt="">
+            <div class="more-item-body"><strong>Центр Закупок Сетей</strong><em>Проведите переговоры с закупщиками сетей</em></div>
+            <span class="more-btn">Подробнее</span>
+          </a>
+          <a class="more-item" href="https://peterfood.ru/activnye-setevye-prodazhi-na-peterfood" target="_blank" rel="noopener">
+            <img src="assets/more/asp.png" alt="" style="object-position:50% 8%">
+            <div class="more-item-body"><strong>Активные Сетевые Продажи</strong><em>Приведите закупщиков сетей к вашему продукту</em></div>
+            <span class="more-btn">Подробнее</span>
+          </a>
+          <a class="more-item" href="https://peterfood.ru/konkursy-kachestva-na-peterfood" target="_blank" rel="noopener">
+            <img src="assets/more/konkurs.png" alt="">
+            <div class="more-item-body"><strong>Конкурсы качества</strong><em>Получите внимание закупщиков и СМИ</em></div>
+            <span class="more-btn">Подробнее</span>
+          </a>
+        </div>
+      </section>
+    </main>
+    <footer><a href="https://peterfood.ru/" target="_blank" rel="noopener">ПЕТЕРФУД 2026</a><span>Материал подготовлен командой «Петерфуда» на основе выступления и практического опыта Дарьи Вансович, Specialty.ru.</span></footer>
+    <script>
+      const audio = document.querySelector('audio');
+      const play = document.querySelector('.audio-play');
+      const status = document.querySelector('.audio-status span');
+      const format = seconds => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
+      play.addEventListener('click', () => audio.paused ? audio.play() : audio.pause());
+      document.querySelector('.audio-volume').addEventListener('click', event => {
+        audio.muted = !audio.muted;
+        event.currentTarget.classList.toggle('is-muted', audio.muted);
+        event.currentTarget.setAttribute('aria-label', audio.muted ? 'Включить звук' : 'Выключить звук');
+      });
+      audio.addEventListener('play', () => play.classList.add('is-playing'));
+      audio.addEventListener('pause', () => play.classList.remove('is-playing'));
+      audio.addEventListener('timeupdate', () => status.textContent = `${format(audio.currentTime)} / ${format(audio.duration || 112)}`);
+    </script>
+    <script>
+      const totalSlides = 19;
+      let currentSlide = 0;
+      const slideImg = document.getElementById('gallerySlide');
+      const dotsWrap = document.getElementById('galleryDots');
+      const expandBtn = document.getElementById('galleryExpand');
+      const galleryCard = document.getElementById('galleryCard');
+      const backdrop = document.getElementById('galleryBackdrop');
+      const slideSrc = i => `assets/slides/slide-${String(i + 1).padStart(2, '0')}.png`;
+
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Слайд ${i + 1}`);
+        if (i === 0) dot.classList.add('is-active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsWrap.appendChild(dot);
+      }
+
+      function goToSlide(i) {
+        currentSlide = (i + totalSlides) % totalSlides;
+        slideImg.src = slideSrc(currentSlide);
+        slideImg.alt = `Слайд ${currentSlide + 1} из ${totalSlides} презентации гайда`;
+        [...dotsWrap.children].forEach((dot, idx) => dot.classList.toggle('is-active', idx === currentSlide));
+      }
+
+      document.getElementById('galleryPrev').addEventListener('click', () => goToSlide(currentSlide - 1));
+      document.getElementById('galleryNext').addEventListener('click', () => goToSlide(currentSlide + 1));
+      function setExpanded(expanded) {
+        galleryCard.classList.toggle('is-expanded', expanded);
+        backdrop.classList.toggle('is-visible', expanded);
+        expandBtn.classList.toggle('is-expanded', expanded);
+        expandBtn.setAttribute('aria-label', expanded ? 'Свернуть галерею' : 'Развернуть галерею');
+      }
+      expandBtn.addEventListener('click', () => setExpanded(!galleryCard.classList.contains('is-expanded')));
+      backdrop.addEventListener('click', () => setExpanded(false));
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') setExpanded(false);
+      });
+    </script>
+  </body>
+</html>

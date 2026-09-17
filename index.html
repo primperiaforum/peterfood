@@ -45,7 +45,16 @@
       /* Весь текст лонгрида выровнен по левому краю; номер шага — декоративный элемент над заголовком. */
       .lead { margin:0 0 70px; }
       .chapter { grid-template-columns:1fr; gap:14px; }
-      @media (max-width:680px) { .audio-volume,.audio-menu { display:none; } .audio-guide { font-size:11px; } }
+      @media (max-width:680px) {
+        .audio-volume,.audio-menu { display:none; }
+        .audio-guide { font-size:11px; }
+        .event-bar { display:block; padding:20px 22px; border-radius:26px; min-height:auto; }
+        .site-link { display:inline-block; margin:14px 0 0; padding:14px 24px; }
+        .brand { font-size:26px; }
+        .event-details { font-size:14px; gap:14px; }
+        .summary .section { padding:28px 24px; }
+        .summary h2 { font-size:19px !important; line-height:1.25 !important; }
+      }
     </style>
   </head>
   <body>
